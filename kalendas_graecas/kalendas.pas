@@ -168,7 +168,7 @@ begin
   brain();
 end;
 
-//
+//Ручное добавление
 Procedure add_line(file2add: string);
 var
   line2ad: string;
@@ -214,7 +214,7 @@ end;
 
 //==============================================================================
 Begin
-// прдусиановка
+// предустановка
   persons2read := 'persons.txt';
   event2read := 'event.txt';
 // спрашиваем год
