@@ -9,6 +9,7 @@ Var
   salors_status: array of integer;
   first, the_salor, head: salor;
 
+// функция отрислвки человечков
 procedure man_sit (i : integer);
 begin
   if (salors_status[i*2-1] = 1) and (salors_status[i*2] = 1) then
@@ -37,6 +38,7 @@ begin
     end
 end;
 
+// функция построения корабля
 procedure visualize();
 var
   i: integer;
@@ -75,6 +77,7 @@ begin
       write('       ----------',#10#13);
   end;
 
+// главная функций
 procedure read_and_do();
 var
   i: integer;
@@ -92,7 +95,7 @@ begin
   writeln('Number of salors:');
   readln(start_num);
   SetLength(salors_status,start_num+1);
-
+// формирем массив и кольцевой список
   for i := 1 to start_num - 1 do
     begin
       salors_status[i] := 1;
@@ -110,6 +113,8 @@ begin
   writeln('Нажмите Enter для продолжения.');
   readln();
   write(the_salor^.num,' ',the_salor^.next^.num,' ',the_salor^.next^.next^.num,#10#13);
+
+// цикл числу моряков, выкидывающий из кольцевого списка через двоих и зануляющий погибшего в salors_status[]
   for i := 1 to start_num-2 do
     begin
       ClrScr();
@@ -127,12 +132,6 @@ begin
     write('Выживут №№ ',the_salor^.num,' и ',the_salor^.next^.num,#10#13);
 end;
 
-procedure man_jump ();
-begin
-end;
-
-
 begin
   read_and_do();
-
 end.

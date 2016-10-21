@@ -8,12 +8,13 @@ Var
   cu_name,filename: string;
   i,ii: integer;
 Begin
+// формируем массив студентов
   Assign(readenfile, 'students.txt');
   reset(readenfile);
   for i := 1 to 30 do
      readln(readenfile,students[i]);
   Close(readenfile);
-
+// формируем множество знающих английский
 english := [];
 
   i := 1;
@@ -32,7 +33,7 @@ english := [];
        end;
     end;
   Close(readenfile);
-
+// формируем множество знающих немецкий
 deutsch := [];
 
   i := 1;
@@ -51,7 +52,7 @@ deutsch := [];
        end;
     end;
   Close(readenfile);
-
+// формируем множество знающих французский
 francais := [];
 
   i := 1;
@@ -70,13 +71,12 @@ francais := [];
        end;
     end;
   Close(readenfile);
-
+// вывод знающих все языка
 writeln('Все языки знают:');
   for i := 1 to 30 do
     if (i in english*francais*deutsch) then
       writeln(students[i]);
-
-
+// вывод не знающих ниодного
 writeln(#10#13'Ни одного языка не знают:');
   for i := 1 to 30 do
     if not(i in english+francais+deutsch) then
